@@ -1,1 +1,1 @@
-# password-challenge
+# password-generator
