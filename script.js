@@ -8,34 +8,15 @@ function generatePassword() {
    length: 0
   }
 
- if (confirm("Use lowercase characters?")) {
-      criteria.lowercase = true;
- }
- else {
-   criteria.lowercase = false;
- }
- if (confirm("Use uppercase characters?")) {
-  criteria.uppercase = true;
-}
-else {
-  criteria.uppercase = false;
-}
+ if (confirm("Use lowercase characters?")) criteria.lowercase = true;
 
- if (confirm("Use numbers?")) {
-  criteria.numbers = true;
-}
-else {
-  criteria.numbers = false;
-}
- if (confirm("Use special characters?")) {
-  criteria.specialCharacters = true;
-}
-else {
-  criteria.specialCharacters = false;
+ if (confirm("Use uppercase characters?")) criteria.uppercase = true;
 
- }
+ if (confirm("Use numbers?")) criteria.numbers = true;
 
- if (criteria.lowercase == false && criteria.uppercase == false && criteria.numbers == false && criteria.specialCharacters ==false) {
+ if (confirm("Use special characters?")) criteria.specialCharacters = true;
+
+ if (!criteria.lowercase && !criteria.uppercase && !criteria.numbers && !criteria.specialCharacters) {
    return "You must select at least one criteria.  Please try again.";
  }
  criteria.length = prompt("How long will your password be?");
@@ -50,7 +31,25 @@ else {
    specialCharacters: "!@#$%&*",
  }
 var allowedCharacters = ""
-console.log(criteria);
+
+if (criteria.lowercase) {
+  allowedCharacters += characters.lowercase;
+}
+if (criteria.uppercase) {
+  allowedCharacters += characters.uppercase;
+}
+if (criteria.numbers) {
+  allowedCharacters += characters.numbers;
+}
+if (criteria.specialCharacters) {
+  allowedCharacters += characters.specialCharacters;
+}
+var finishedPassword = ""
+for (let i = 0; i < criteria.length; i++) {
+  var randomNumber = Math.floor(Math.random()*allowedCharacters.length)
+  finishedPassword +=(allowedCharacters[randomNumber])
+}
+return finishedPassword;
 }
 
 // Get references to the #generate element
