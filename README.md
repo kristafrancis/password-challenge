@@ -14,3 +14,5 @@ https://kristafrancis.github.io/password-generator/
 ## Acknowledgments
 
 Built by Krista Francis
+
+<img src="https://user-images.githubusercontent.com/106784320/182636707-386836b1-a24b-4c3a-a411-1f39b0011565.png">
